@@ -33,7 +33,7 @@ Navigate to the frontend directory and start the Vue.js application:
 ```bash
 cd ../frontend
 npm install
-npm run serve
+npm run dev
 ```
 
 ## How to Contribute
