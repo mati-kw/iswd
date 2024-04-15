@@ -1,3 +1,5 @@
+# Backend secrets
+../backend/secrets.json
 # Logs
 logs
 *.log
