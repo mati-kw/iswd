@@ -10,7 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
+import json
+
+# Load secrets from json file
+with open('backend/secrets.json') as f:
+    secrets = json.load(f)
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = f"Set the {setting} environment variable."
+        raise ImproperlyConfigured(error_msg)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,8 +89,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'iswd_db',
+        'USER': 'root',
+        'PASSWORD': get_secret('DATABASE_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

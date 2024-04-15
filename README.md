@@ -10,7 +10,7 @@ git clone https://gitlab.com/YOUR_USERNAME/iswd.git
 cd iswd
 ```
 ## Backend Setup
-Navigate to the backend directory, set up the virtual environment, and start the Django server:
+- Navigate to the backend directory, set up the virtual environment, and start the Django server:
 
 ```bash
 cd backend
@@ -18,6 +18,13 @@ pipenv install
 pipenv shell
 python manage.py migrate
 python manage.py runserver
+```
+- create a local database called: `iswd_db`.
+- In backend directory create a `secrets.json` file with such content:
+```bash
+{
+  "DATABASE_PASSWORD": "your_password_here"
+}
 ```
 
 ## Frontend Setup
