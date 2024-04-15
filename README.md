@@ -6,7 +6,7 @@ This project utilizes Django for the backend to manage user data and interaction
 ## Installation and Setup
 Clone the repository:
 ```bash
-git clone https://gitlab.com/YOUR_USERNAME/iswd.git
+git clone https://github.com/mati-kw/iswd.git
 cd iswd
 ```
 ## Backend Setup
